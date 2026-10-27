@@ -256,7 +256,14 @@ function normalizarTexto(texto) {
         .replace(/\s+/g, "")
         .toUpperCase();
 }
+function shuffleWord(word) {
+    return word
+        .split("")
+        .sort(() => Math.random() - 0.5)
+        .join("");
+}
 
+console.log(shuffleWord("javascript"));
 /* =====================================
    11. INICIAR UMA RODADA
 ===================================== */
