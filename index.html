@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordRush | Jogo de Palavras</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">Word<span>Rush</span></a>
+        <p class="subtitle">Sua mente contra as letras.</p>
+    </header>
+    <main>
+        <section id="start-screen" class="game-container start-screen">
+            <section class="game-header">
+                <p class="eyebrow">WORDRUSH</p>
+                <h1>Pronto para jogar?</h1>
+                <p class="description">Escolha uma categoria e prepare sua mente para desembaralhar as palavras.</p>
+            </section>
+            <section class="game-panel start-panel">
+                <div class="category-selector">
+                    <label for="category-select">Escolha uma categoria</label>
+                    <select id="category-select">
+                        <option value="frutas">Frutas</option>
+                        <option value="series">Series</option>
+                        <option value="filmes">Filmes</option>
+                        <option value="jogos">Jogos</option>
+                        <option value="tecnologia">Tecnologia e programacao</option>
+                        <option value="geografia">Paises e cidades</option>
+                        <option value="animais">Animais</option>
+                        <option value="ciencia">Ciencia</option>
+                    </select>
+                </div>
+                <button type="button" id="start-button">Comecar a jogar</button>
+            </section>
+            <footer class="footer"><p>WordRush - Treine sua mente, uma palavra por vez.</p></footer>
+        </section>
+        <section id="game-screen" class="game-container" hidden>
+            <button type="button" id="back-button" class="back-button">Voltar ao inicio</button>
+            <section class="game-header">
+                <p class="eyebrow">DESAFIO DE PALAVRAS</p>
+                <h1>Desembaralhe!</h1>
+                <p class="description">Organize as letras e descubra a palavra escondida.</p>
+            </section>
+            <section class="game-panel">
+                <div class="game-info">
+                    <div class="info-card"><span class="info-label">CATEGORIA</span><strong id="category-name">Frutas</strong></div>
+                    <div class="info-card"><span class="info-label">PONTUACAO</span><strong id="score">0</strong></div>
+                    <div class="info-card"><span class="info-label">RODADA</span><strong id="round">1</strong></div>
+                </div>
+                <p class="instruction">QUAL E A PALAVRA?</p>
+                <div id="scrambled-word" class="scrambled-word" aria-label="Palavra embaralhada">Pronto!</div>
+                <form id="answer-form">
+                    <label for="answer">Digite sua resposta</label>
+                    <input type="text" id="answer" placeholder="Sua resposta aqui..." autocomplete="off" spellcheck="false" required>
+                    <button type="submit" id="check-button">Verificar resposta</button>
+                </form>
+                <button type="button" id="hint-button" class="secondary-button">Revelar uma letra (20 pontos)</button>
+                <p id="message" class="message" role="status" aria-live="polite">Prepare-se para jogar!</p>
+                <button type="button" id="next-button" class="secondary-button" hidden>Proxima palavra</button>
+            </section>
+            <footer class="footer"><p>WordRush - Treine sua mente, uma palavra por vez.</p></footer>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,428 @@
+
+/* =====================================
+   1. CONFIGURAÇÕES GERAIS
+===================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #080f1e;
+    --panel: #111d31;
+    --panel-light: #1a2a43;
+    --primary: #38bdf8;
+    --primary-hover: #7dd3fc;
+    --text: #f8fafc;
+    --muted: #9aabc2;
+    --success: #4ade80;
+    --error: #fb7185;
+    --border: #293d59;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 24px 16px;
+
+    background:
+        radial-gradient(
+            ellipse at top,
+            #152b48 0%,
+            transparent 55%
+        ),
+        var(--background);
+
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =====================================
+   2. CABEÇALHO
+===================================== */
+
+.header {
+    margin: 0 auto 22px;
+    text-align: center;
+}
+
+.logo {
+    color: var(--text);
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.subtitle {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* =====================================
+   3. TÍTULO DO JOGO
+===================================== */
+
+.game-container {
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+.game-header {
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+}
+
+.game-header h1 {
+    margin: 0;
+    font-size: clamp(30px, 6vw, 40px);
+    letter-spacing: -1px;
+}
+
+.description {
+    max-width: 380px;
+    margin: 10px auto 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* =====================================
+   4. PAINEL PRINCIPAL
+===================================== */
+
+.game-panel {
+    padding: 22px;
+    background: rgba(17, 29, 49, 0.96);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.3);
+}
+
+/* =====================================
+   5. CATEGORIA, PONTUAÇÃO E RODADA
+===================================== */
+
+.game-info {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.info-card {
+    padding: 12px 6px;
+    background: var(--panel-light);
+    border: 1px solid rgba(148, 163, 184, 0.08);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.info-label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.info-card strong {
+    color: var(--primary);
+    font-size: 19px;
+}
+
+/* =====================================
+   6. PALAVRA EMBARALHADA
+===================================== */
+
+.instruction {
+    margin: 25px 0 12px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.scrambled-word {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100px;
+    margin: 0 0 22px;
+    padding: 16px 10px;
+
+    color: var(--primary);
+    background: linear-gradient(135deg, #172b46, #101a2c);
+    border: 1px solid #294765;
+    border-radius: 16px;
+
+    font-size: clamp(25px, 6vw, 38px);
+    font-weight: 800;
+    letter-spacing: 5px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    text-align: center;
+
+    text-shadow: 0 0 18px rgba(56, 189, 248, 0.15);
+}
+
+/* =====================================
+   7. CAMPO DE RESPOSTA
+===================================== */
+
+#answer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#answer-form label {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+#answer {
+    width: 100%;
+    padding: 14px;
+
+    color: var(--text);
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+
+    font-size: 16px;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+#answer::placeholder {
+    color: #64748b;
+}
+
+#answer:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.13);
+}
+
+/* =====================================
+   8. BOTÕES
+===================================== */
+
+#check-button,
+.secondary-button {
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 16px;
+
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        transform 0.2s,
+        opacity 0.2s;
+}
+
+#check-button {
+    color: #071523;
+    background: var(--primary);
+    border: none;
+}
+
+#check-button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.secondary-button {
+    margin-top: 10px;
+    color: var(--text);
+    background: var(--panel-light);
+    border: 1px solid var(--border);
+}
+
+.secondary-button:hover {
+    background: #263b58;
+}
+
+button:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+}
+
+button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* =====================================
+   9. MENSAGENS DO JOGO
+===================================== */
+
+.message {
+    min-height: 22px;
+    margin: 14px 0 0;
+
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.message.success {
+    color: var(--success);
+}
+
+.message.error {
+    color: var(--error);
+}
+
+/* =====================================
+   10. RODAPÉ
+===================================== */
+
+.footer {
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 11px;
+    text-align: center;
+}
+
+/* =====================================
+   11. AJUSTES PARA CELULARES
+===================================== */
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    .header {
+        margin-bottom: 18px;
+    }
+
+    .logo {
+        font-size: 27px;
+    }
+
+    .game-panel {
+        padding: 16px;
+    }
+
+    .game-info {
+        gap: 6px;
+    }
+
+    .info-card {
+        padding: 11px 4px;
+    }
+
+    .info-label {
+        font-size: 9px;
+        letter-spacing: 0.5px;
+    }
+
+    .info-card strong {
+        font-size: 17px;
+    }
+
+    .scrambled-word {
+        min-height: 85px;
+        padding: 12px 6px;
+        font-size: 25px;
+        letter-spacing: 3px;
+    }
+}
+
+/* =====================================
+   SELETOR DE CATEGORIAS
+===================================== */
+
+.category-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-top: 18px;
+}
+
+.category-selector label {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#category-select {
+    width: 100%;
+    padding: 13px 14px;
+
+    color: var(--text);
+    background: var(--panel-light);
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    cursor: pointer;
+    outline: none;
+
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#category-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.13);
+}
+
+#category-select option {
+    color: var(--text);
+    background: var(--panel);
+}
+
+#hint-button {
+    width: 100%;
+    margin-top: 12px;
+}
+
+#hint-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+
+[hidden] { display: none !important; }
+.start-screen { padding-top: 7vh; }
+.start-panel { padding: 28px; }
+#start-button { width: 100%; min-height: 48px; margin-top: 20px; padding: 12px 16px; color: #071523; background: var(--primary); border: 0; border-radius: 10px; font-size: 15px; font-weight: bold; cursor: pointer; }
+#start-button:hover { background: var(--primary-hover); }
+.back-button { margin: 0 0 14px; padding: 8px 0; color: var(--muted); background: transparent; border: 0; font: inherit; cursor: pointer; }
+.back-button:hover { color: var(--primary); }
+
+/* Compacta a area da partida */
+#game-screen { max-width: 460px; }
+#game-screen .game-panel { padding: 18px; }
+
